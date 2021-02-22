@@ -1,8 +1,8 @@
 import React from 'react';
 
-const person = () => {
+const person = (props) => {
   return (
-    <p>I'm a Person</p>
+    <p>Ny name is {props.name}</p>
   )
 }
 
