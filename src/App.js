@@ -13,9 +13,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi there!</h1>
-        <Person  name='Adam' />
-        <Person  name='Ben' />
-        <Person  name='Chris' />
+        <Person name='Adam' age='28' />
+        <Person name='Ben'age='30'>
+          My hobbies: Racing
+        </Person>
+        <Person name='Chris' age='27'/>
       </div>
     );
     // return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Edited content'));
