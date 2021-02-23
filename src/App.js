@@ -15,13 +15,24 @@ class App extends Component {
       { name: 'Chris', age: 27 }
     ]
   }
+
+  switchNameHandler = () => {
+   // console.log('Was clicked');
+  // console.log(this);
+  }
   
+// For methods in React, the 'this' keyword should represent the component that owns the method.
+// That is why you should use arrow functions.
+// With arrow functions, 'this' will always represent the object that defined the arrow function.
+ 
   render() {
     // this isn't html! this is js!!!
     return (
       <div className="App">
         <h1>Hi there!</h1>
-        <button>Switch name</button>
+        {/* React event handlers are written inside curly braces and without parentheses:
+          onClick={shoot}  instead of onClick="shoot()" */}
+        <button onClick={ this.switchNameHandler }>Switch name</button>
         <Person name={ this.state.persons[0].name } age={ this.state.persons[0].age } />
         <Person name={ this.state.persons[1].name } age={ this.state.persons[1].age }>
           My hobbies: Racing
