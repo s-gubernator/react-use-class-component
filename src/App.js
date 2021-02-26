@@ -13,12 +13,21 @@ class App extends Component {
       { name: 'Adam', age: 28 }, 
       { name: 'Ben', age: 30 }, 
       { name: 'Chris', age: 27 }
-    ]
+    ],
+    otherState: 'some other value'
   }
 
   switchNameHandler = () => {
    // console.log('Was clicked');
-  // console.log(this);
+   // console.log(this);
+   // DON'T DO THIS: this.state.person[0].name = 'Max';
+    this.setState( {
+      persons: [
+        { name: 'Max', age: 28 }, 
+        { name: 'Ben', age: 30 }, 
+        { name: 'Chris', age: 25 }
+      ]
+     } );
   }
   
 // For methods in React, the 'this' keyword should represent the component that owns the method.
@@ -31,7 +40,7 @@ class App extends Component {
       <div className="App">
         <h1>Hi there!</h1>
         {/* React event handlers are written inside curly braces and without parentheses:
-          onClick={shoot}  instead of onClick="shoot()" */}
+          onClick={shoot}  instead of  onClick="shoot()" */}
         <button onClick={ this.switchNameHandler }>Switch name</button>
         <Person name={ this.state.persons[0].name } age={ this.state.persons[0].age } />
         <Person name={ this.state.persons[1].name } age={ this.state.persons[1].age }>
