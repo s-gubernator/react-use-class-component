@@ -17,13 +17,13 @@ class App extends Component {
     otherState: 'some other value'
   }
 
-  switchNameHandler = () => {
+  switchNameHandler = (newName) => {
    // console.log('Was clicked');
    // console.log(this);
    // DON'T DO THIS: this.state.person[0].name = 'Max';
     this.setState( {
       persons: [
-        { name: 'Max', age: 28 }, 
+        { name: newName, age: 28 }, 
         { name: 'Ben', age: 30 }, 
         { name: 'Chris', age: 25 }
       ]
@@ -41,12 +41,22 @@ class App extends Component {
         <h1>Hi there!</h1>
         {/* React event handlers are written inside curly braces and without parentheses:
           onClick={shoot}  instead of  onClick="shoot()" */}
-        <button onClick={ this.switchNameHandler }>Switch name</button>
-        <Person name={ this.state.persons[0].name } age={ this.state.persons[0].age } />
-        <Person name={ this.state.persons[1].name } age={ this.state.persons[1].age }>
-          My hobbies: Racing
+        <button onClick={this.switchNameHandler.bind(this, 'Max!!!')}>Switch name</button>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}
+        />
+        <Person 
+          name={this.state.persons[1].name}
+          age={this.state.persons[1].age}
+          click={this.switchNameHandler.bind(this, 'Max-Max')}
+        >
+           My hobbies: Racing
         </Person>
-        <Person name={ this.state.persons[2].name } age={ this.state.persons[2].age } />
+        <Person 
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age} 
+        />
       </div>
     );
     // return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Edited content'));
