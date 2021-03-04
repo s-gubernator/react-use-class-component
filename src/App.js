@@ -41,7 +41,9 @@ class App extends Component {
         <h1>Hi there!</h1>
         {/* React event handlers are written inside curly braces and without parentheses:
           onClick={shoot}  instead of  onClick="shoot()" */}
-        <button onClick={this.switchNameHandler.bind(this, 'Max!!!')}>Switch name</button>
+
+        {/* Using such a {() => {this.function()}} construction can be inefficient */}
+        <button onClick={() => {this.switchNameHandler('Max = button click =')}}>Switch name</button>
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
@@ -49,7 +51,7 @@ class App extends Component {
         <Person 
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, 'Max-Max')}
+          click={this.switchNameHandler.bind(this, 'Max = click on paragraph =')}
         >
            My hobbies: Racing
         </Person>
