@@ -29,6 +29,16 @@ class App extends Component {
       ]
      } );
   }
+
+  changeNameHandler = (event) => {
+    this.setState( {
+      persons: [
+        { name: 'Max', age: 28 }, 
+        { name: event.target.value, age: 30 }, 
+        { name: 'Chris', age: 25 }
+      ]
+     } );
+  }
   
 // For methods in React, the 'this' keyword should represent the component that owns the method.
 // That is why you should use arrow functions.
@@ -52,6 +62,7 @@ class App extends Component {
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
           click={this.switchNameHandler.bind(this, 'Max = click on paragraph =')}
+          changed={this.changeNameHandler}
         >
            My hobbies: Racing
         </Person>
