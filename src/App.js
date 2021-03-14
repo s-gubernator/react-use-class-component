@@ -46,6 +46,14 @@ class App extends Component {
  
   render() {
     // this isn't html! this is js!!!
+    const style = {
+      backgroundColor: 'yellow',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
+
     return (
       <div className="App">
         <h1>Hi there!</h1>
@@ -53,7 +61,10 @@ class App extends Component {
           onClick={shoot}  instead of  onClick="shoot()" */}
 
         {/* Using such a {() => {this.function()}} construction can be inefficient */}
-        <button onClick={() => {this.switchNameHandler('Max = button click =')}}>Switch name</button>
+        <button
+          style={style}
+          onClick={() => {this.switchNameHandler('Max = button click =')}}
+        >Switch name</button>
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
